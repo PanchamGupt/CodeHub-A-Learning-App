@@ -102,7 +102,7 @@ email
 
   errorHandler(error: HttpErrorResponse) {
   
-    return throwError(error.statusText || "server error");
+    return throwError("Please check your network connection!");
   }
 
   //spinner

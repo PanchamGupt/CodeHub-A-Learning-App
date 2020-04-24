@@ -21,13 +21,23 @@
 
   <div *ngFor="let c of item.content" style="margin:0px 12px;">
     
-    <h1 *ngIf="c.type=='heading'">
+    <h2 *ngIf="c.type=='heading'">
       {{c.value}}
-    </h1>
+    </h2>
+    <h5 *ngIf="c.type=='sub-heading'">
+      {{c.value}}
+    </h5>
+    <div *ngIf="c.type=='example'" style="border:0.8px groove rgb(27, 116, 93);padding:5px;border-radius: 5px;;"> <p *ngFor="let line of c.value">{{line}}</p> </div>
     <p *ngIf="c.type=='text'" style="text-align:justify">
       {{c.value}}
     </p>
-    <ion-img *ngIf="c.type=='image'" [src]="imageUrl"></ion-img>
+    <div *ngIf="c.type=='note'">
+      <p><span style="color: red;font-size: large;font-weight: bold;font-style: italic;">Note: -&nbsp;</span>{{c.value}}</p>
+    </div>
+
+
+
+    <ion-img *ngIf="c.type=='image'" [src]="imageUrl" style="border:1px solid rgb(20,66,100)"></ion-img>
 
     <div *ngIf="c.type=='list-string'">
       <ul *ngFor="let item of c.value">
