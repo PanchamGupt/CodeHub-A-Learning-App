@@ -62,6 +62,7 @@ language
   }
 
   goBack() {
+    this.fds.loadingDismiss();
     this.location.back();
   }
  

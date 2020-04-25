@@ -11,53 +11,91 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding-horizontal
+<ion-content
+  padding-horizontal
   [scrollEvents]="true"
   (ionScrollStart)="logScrollStart()"
   (ionScroll)="logScrolling($event)"
   (ionScrollEnd)="logScrollEnd()"
   [fullscreen]="true"
 >
-
-  <div *ngFor="let c of item.content" style="margin:0px 12px;">
-    
+  <div *ngFor="let c of item.content" style="margin: 0px 12px;">
     <h2 *ngIf="c.type=='heading'">
       {{c.value}}
     </h2>
     <h5 *ngIf="c.type=='sub-heading'">
       {{c.value}}
     </h5>
-    <div *ngIf="c.type=='example'" style="border:0.8px groove rgb(27, 116, 93);padding:5px;border-radius: 5px;;"> <p *ngFor="let line of c.value">{{line}}</p> </div>
-    <p *ngIf="c.type=='text'" style="text-align:justify">
+    <div
+      *ngIf="c.type=='example'"
+      style="
+        border: 0.8px groove rgb(27, 116, 93);
+        padding: 5px;
+        border-radius: 5px;
+      "
+    >
+      <p *ngFor="let line of c.value">{{line}}</p>
+    </div>
+
+    <div
+      *ngIf="c.type=='example-code'"
+      style="
+        
+        padding: 5px;
+        border-radius: 5px;
+        background-color: black;
+        color:white;
+      "
+    >
+      <p *ngFor="let line of c.value">{{line}}</p>
+    </div>
+    <p *ngIf="c.type=='text'" style="text-align: justify;">
       {{c.value}}
     </p>
     <div *ngIf="c.type=='note'">
-      <p><span style="color: red;font-size: large;font-weight: bold;font-style: italic;">Note: -&nbsp;</span>{{c.value}}</p>
+      <p>
+        <span
+          style="
+            color: red;
+            font-size: large;
+            font-weight: bold;
+            font-style: italic;
+          "
+          >Note: -&nbsp;</span
+        >{{c.value}}
+      </p>
     </div>
 
-
-
-    <ion-img *ngIf="c.type=='image'" [src]="imageUrl" style="border:1px solid rgb(20,66,100)"></ion-img>
+    <ion-img
+      *ngIf="c.type=='image'"
+      [src]="imageUrl"
+      style="border: 1px solid rgb(20, 66, 100);border-radius: 10px;"
+    ></ion-img>
 
     <div *ngIf="c.type=='list-string'">
       <ul *ngFor="let item of c.value">
         <li>{{item}}</li>
       </ul>
     </div>
-    <div *ngIf="c.type=='code'">
-      <pre style="background-color: black; color: white;">{{code}}</pre>
+    <div *ngIf="c.type=='code'" style="background-color: black; color: white;padding:3px 5px;border-radius: 7px;">
+      <pre >{{code}}</pre>
     </div>
   </div>
   <!-- </div>  -->
- 
-  <ion-item lines="none" style="font-weight: bold; margin:2% 32%; " >
-    <ion-icon name="chevron-back-outline" (click)="backItem()" *ngIf="backDisplay"></ion-icon> Page
-    {{index+1}}<ion-icon *ngIf="nextDisplay"
+
+  <ion-item lines="none" style="font-weight: bold; margin: 2% 32%;">
+    <ion-icon
+      name="chevron-back-outline"
+      (click)="backItem()"
+      *ngIf="backDisplay"
+    ></ion-icon>
+    Page {{index+1}}<ion-icon
+      *ngIf="nextDisplay"
       name="chevron-forward-outline"
-      (click)="nextItem()">
+      (click)="nextItem()"
+    >
     </ion-icon>
   </ion-item>
-
 
   <!-- <ion-fab vertical="bottom" horizontal="start" slot="fixed" *ngIf="contents.index!=1"  >
     <ion-fab-button (click)="back(contents.index)" color="light" size="small">

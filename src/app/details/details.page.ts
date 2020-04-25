@@ -151,6 +151,8 @@ export class DetailsPage implements OnInit {
     }
   }
 
+//load code
+
   loadCode(course, chapter, file) {
     this.fds.loadingPresent();
     const path = `${course}/${chapter}/${file}`;
@@ -169,6 +171,7 @@ export class DetailsPage implements OnInit {
         xhr.send();
       },
       (err) => {
+        this.fds.loadingDismiss();
         console.log(err);
       }
     );
@@ -176,23 +179,27 @@ export class DetailsPage implements OnInit {
 
   //load image
   loadImage(course, chapter, file) {
-    // this.fds.loadingPresent()
+    this.fds.loadingPresent()
     const path = `${course}/${chapter}/${file}`;
   
     const storageRef = this.storage.ref(path);
 
     storageRef.getDownloadURL().subscribe(
       (res) => {
+        this.fds.loadingDismiss();
         this.imageUrl = res;
       },
       (err) => {
+        this.fds.loadingDismiss();
         console.log(err);
       }
     );
   }
 
   goBack() {
+    this.fds.loadingDismiss();
     this.location.back();
+
   }
 
   back(index) {
