@@ -74,7 +74,7 @@ allet
     private fds: FirebaseDataService,
     private alertCtrl: AlertController
   ) {
-    
+    this.splashScreen.hide();
     this.initializeApp();
   }
 
@@ -82,7 +82,7 @@ allet
     this.platform.ready().then(() => {
      
       
-      this.router.navigateByUrl('welcome')
+      this.router.navigateByUrl('splash_screen')
       
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -150,6 +150,8 @@ console.log(this.email)
   //  alert('Push action performed: ' + JSON.stringify(notification));
  }
 );
+
+
 
 
 

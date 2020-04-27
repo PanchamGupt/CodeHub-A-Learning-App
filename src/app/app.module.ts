@@ -20,12 +20,13 @@ import { AngularFireStorageModule, BUCKET } from "@angular/fire/storage";
 import { IonicStorageModule } from "@ionic/storage";
 import { FirebaseDataService } from "./services/firebase-data.service";
 import { HttpClientModule } from "@angular/common/http";
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 // firestore
 
 
 // import {FCM} from "@ionic-native/fcm";
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,SplashScreenComponent],
   entryComponents: [],
 
   imports: [
