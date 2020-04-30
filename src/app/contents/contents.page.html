@@ -11,6 +11,16 @@
 
 <ion-content>
 
+<!-- no data -->
+
+<div *ngIf="data===null"  class="background">
+  <img src="https://images.wallpaperscraft.com/image/pen_pages_vintage_130832_1350x2400.jpg" style="filter: blur(5px);background-size: cover;" >
+  <div class="centered"><h1 >Coming Soon!!</h1>
+  <p> CodeHub Team is working on it....</p></div>
+
+</div>
+
+
 <ion-card *ngFor="let c of data" (click)="details(c)" > 
   <ion-item lines="none">
  

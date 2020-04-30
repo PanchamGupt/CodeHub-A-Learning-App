@@ -22,3 +22,23 @@ ion-icon:hover{
     
     color: rgb(219, 155, 155);
 }
+
+/* div.background{
+    --background: url(https://images.wallpaperscraft.com/image/pen_pages_vintage_130832_1350x2400.jpg) 0 0/100% 100% no-repeat;
+    text-align: center;
+} */
+
+.background{
+    position: relative;
+  text-align: center;
+  color: white;
+  
+}
+
+.centered {
+    font-weight: bolder;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    /* transform: translate(-50%, -50%); */
+  }

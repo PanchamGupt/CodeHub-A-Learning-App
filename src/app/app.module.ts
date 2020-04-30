@@ -47,7 +47,7 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    // SplashScreen,
     FirebaseDataService,
 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

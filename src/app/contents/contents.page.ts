@@ -29,7 +29,9 @@ language
       this.fds.getData(this.courseName+".json")
       .subscribe((data)=> {
                           this.fds.loadingDismiss();
-                          this.data=data},
+                          this.data=data
+                          console.log("data",this.data)
+                        },
                  (error)=>{
                    console.log(error)
                    this.fds.loadingDismiss();

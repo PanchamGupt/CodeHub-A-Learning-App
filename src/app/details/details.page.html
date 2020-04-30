@@ -37,7 +37,7 @@
       <p *ngFor="let line of c.value">{{line}}</p>
     </div>
 
-    <div
+    <pre
       *ngIf="c.type=='example-code'"
       style="
         
@@ -48,7 +48,7 @@
       "
     >
       <p *ngFor="let line of c.value">{{line}}</p>
-    </div>
+  </pre>
     <p *ngIf="c.type=='text'" style="text-align: justify;">
       {{c.value}}
     </p>
